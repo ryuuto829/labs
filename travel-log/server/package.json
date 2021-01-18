@@ -1,0 +1,48 @@
+{
+  "name": "travel-log-server",
+  "version": "0.1.0",
+  "description": "Weather widget using NodeJS (Express)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryuuto829/weather-widget.git"
+  },
+  "keywords": [],
+  "author": "Dmytro Rykhlyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryuuto829/weather-widget/issues"
+  },
+  "homepage": "https://github.com/ryuuto829/weather-widget#readme",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,json,md}": [
+      "prettier --write"
+    ],
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@ryuuto829/eslint-config-with-prettier": "^0.2.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
