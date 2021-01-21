@@ -1,14 +1,16 @@
-# 🧪 This is a collection of small experiments that I´ve done based on my studies or just for fun.
+# 🧪 labs
+
+A Collection of small experiments that I´ve done based on my studies.
 
 ##### List of all projects:
 
-[Weather Widget](#weather-widget)  
-[test](#test)
+[test 1](#test1)  
+[test 2](#test2)
 
-## weather-widget
+## test1
 
 coming soon ...
 
-## test
+## test2
 
 coming soon
