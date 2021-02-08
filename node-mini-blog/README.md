@@ -4,16 +4,16 @@
 
 ![node-mini-blog](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/node-mini-blog.jpg)
 
-From the youtube tutorial [Node.js Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU) by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg).
+> From the youtube tutorial [Node.js Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU) by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg).
 
-This application an experiment that contains:
+**This application an experiment that contains:**
 
-- mangodb as database
+- mongodb as database
 - form to add new posts
 - full page view for each post
 - delete post button
 
-Build with:
+**Build with:**
 
 - Express
 - Tailwind CSS

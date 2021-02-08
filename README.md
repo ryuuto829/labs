@@ -6,6 +6,8 @@ A Collection of small experiments that I´ve done based on my studies.
 
 [Node Mini Blog](#node-mini-blog)
 
+---
+
 ## node-mini-blog
 
 A simple blog using Express and MongoDB for storing all blog posts in the database.
