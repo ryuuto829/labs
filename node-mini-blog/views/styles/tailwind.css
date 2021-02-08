@@ -9,41 +9,53 @@
   }
 
   main {
-    @apply w-full my-6 flex-1;
+    @apply w-full my-6 flex-1 px-2 md:px-5;
   }
 
   nav {
-    @apply border-b-4 border-black flex-initial;
+    @apply border-b-4 border-black flex-initial px-2 md:px-5;
   }
 
   footer {
-    @apply text-gray-600 p-10 text-center flex-initial;
+    @apply text-gray-600 py-10 text-center flex-initial px-2 md:px-5;
   }
 
   section {
-    @apply container mx-auto mb-4 text-center;
+    @apply container mx-auto mb-4 text-center max-w-screen-lg;
+  }
+
+  svg {
+    @apply inline-block mr-2 fill-current;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  button {
+    @apply flex items-center justify-center;
   }
 
   .section__header {
-    @apply inline-block border-b-2 border-black text-gray-900 text-lg uppercase mb-10;
+    @apply inline-block border-b-2 border-black text-gray-900 text-lg uppercase mt-5 mb-10;
   }
 }
 
 /* Navigation branding */
 @layer components {
   .brand {
-    @apply text-center p-10;
+    @apply text-center py-8;
   }
 
   .brand__title {
-    @apply text-4xl font-bold mb-4 text-gray-900;
+    @apply text-4xl font-bold mb-4 text-gray-900 text-center;
   }
 }
 
 /* Navigation links list */
 @layer components {
   .navList {
-    @apply flex justify-center content-center text-lg mb-4;
+    @apply flex justify-center items-center text-lg mb-4;
   }
 
   .navList__item {
@@ -51,21 +63,78 @@
   }
 
   .navList__link {
-    @apply p-4 uppercase;
+    @apply p-4 uppercase flex items-center justify-between;
   }
 }
 
 /* Blog layout */
 @layer components {
   .blogs {
-    @apply grid gap-4 grid-cols-3;
+    @apply grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
   }
 
+  .card {
+    @apply border border-gray-200 rounded-lg shadow p-5 text-left;
+  }
+
+  .card__head {
+    @apply flex justify-between items-center mb-4;
+  }
+
+  .card__title {
+    @apply text-lg text-gray-900 font-bold;
+  }
+
+  .card__date {
+    @apply text-sm text-gray-400 pl-2;
+  }
+}
+
+/* Form */
+@layer components {
+  .form {
+    @apply flex flex-col max-w-md mx-auto;
+  }
+
+  .form__label {
+    @apply font-bold text-left mb-2;
+  }
+
+  .form__input {
+    @apply border rounded border-gray-600 mb-4 p-2;
+  }
+}
+
+/* Button */
+@layer components {
+  .btn {
+    @apply mt-8 px-6 py-2 w-full bg-red-400 text-white rounded hover:bg-opacity-75 hover:text-black flex items-center justify-center;
+  }
+
+  .icon-btn {
+    @apply hover:text-red-400;
+  }
+}
+
+/* Post */
+@layer components {
   .post {
-    @apply border border-gray-200 rounded-lg shadow p-5;
+    @apply text-left max-w-screen-md mx-auto;
+  }
+
+  .post__head {
+    @apply flex justify-between content-center mb-4;
   }
 
   .post__title {
-    @apply text-lg text-gray-900 mb-4;
+    @apply text-3xl font-bold;
+  }
+
+  .post__date {
+    @apply mb-4;
+  }
+
+  .post_desc {
+    @apply italic text-gray-400 mb-8;
   }
 }

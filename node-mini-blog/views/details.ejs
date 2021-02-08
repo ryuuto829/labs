@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+
+  <%- include('./partials/nav.ejs') %>
+
+  <main>
+    <section>
+      <h2 class="section__header">Blog Details</h2>
+
+      <div class="post">
+        <header class="post__head">
+          <h3 class="post__title"><%= blog.title %></h3>
+          <button onclick="deletePostHandler('<%= blog._id %>')" class="icon-btn">
+          <%- include('./icons/delete')%> Delete
+          </button>
+        </header>
+        <p class="post__date">Created: <%= blog.createdAt.toLocaleDateString("en-US") %></p>
+        <p class="post_desc"><%= blog.description %></p>
+        <p><%= blog.content %></p>
+      </div>
+
+    </section>
+  </main>
+
+  <%- include('./partials/footer.ejs') %>
+
+  <script>
+    const deletePostHandler = id => {
+      const url = `/blogs/${id}`;
+
+      fetch(url, {
+        method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => window.location.href = data.redirect)
+      .then(err => console.log(err));
+    };
+  </script>
+
+</body>
+</html>

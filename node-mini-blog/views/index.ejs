@@ -11,16 +11,23 @@
 
       <div class="blogs">
         <% if (blogs && blogs.length > 0) { %>
-          <% blogs.forEach(({title, content}) => { %>
+          <% blogs.forEach(({title, content, _id, createdAt, description}) => { %>
 
-            <article class="post">
-              <h3 class="post__title"><%= title %></h3>
-              <p><%= content %></p>
+            <article class="card">
+              <a href="/blogs/<%= _id %>">
+                <header class="card__head">
+                  <h3 class="card__title"><%= title %></h3>
+                  <p class="card__date"><%= createdAt.toLocaleDateString("en-US") %></p>
+                </header>
+                <% if (description) { %>
+                  <p><%= description %></p>
+                <% } %>
+              </a>
             </article>
 
           <% }) %>
         <% } else { %>
-          <p>There's no post to show ...</p>
+          <p>There're no posts to show ...</p>
         <% } %>
       </div>
 

@@ -3,11 +3,19 @@
       <h1 class="brand__title">
         <a href="/">Node Mini Blog</a>
       </h1>
-      <p>Simple Blog using Express, EJS and TailwindCSS</p>
+      <p>Simple blog using Express, EJS and TailwindCSS</p>
     </div>
     <ul class="navList">
-      <li class="navList__item"><a href="/" class="navList__link">Home</a></li>
-      <li class="navList__item"><a href="/about" class="navList__link">About</a></li>
-      <li class="navList__item"><a href="/create" class="navList__link">New Post</a></li>
+      <li class="navList__item">
+        <a href="/" class="navList__link">Home</a>
+      </li>
+      <li class="navList__item">
+        <a href="/about" class="navList__link">About</a>
+      </li>
+      <li class="navList__item">
+        <a href="/blogs/create" class="navList__link">
+          <%- include('../icons/add') %> New Post
+        </a>
+      </li>
     </ul>
   </nav>

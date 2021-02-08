@@ -1,7 +1,21 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const blogRouter = require('./routes/blog');
+require('dotenv').config();
 
 // Express app
 const app = express();
+
+// Parses body and add it to the request obj
+// Read more: http://expressjs.com/en/api.html#express.urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+// Connect to mongodb
+const dbURI = process.env.DB_URI;
+
+mongoose
+  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => app.listen(3000));
 
 // Register view engine as EJS
 app.set('view engine', 'ejs');
@@ -9,40 +23,16 @@ app.set('view engine', 'ejs');
 // Add public folder with stylesheets
 app.use(express.static(`${__dirname}/public`));
 
-// Blog post example data
-const blogs = [
-  {
-    title: 'Some text',
-    content: 'ASdasd asdasdk jaslk dj alsjdkaljd l asjd'
-  },
-  {
-    title: 'Some text',
-    content: 'ASdasd asdasdk jaslk dj alsjdkaljd l asjd'
-  },
-  {
-    title: 'Some text',
-    content: 'ASdasd asdasdk jaslk dj alsjdkaljd l asjd'
-  },
-  {
-    title: 'Some text',
-    content: 'ASdasd asdasdk jaslk dj alsjdkaljd l asjd'
-  },
-];
-
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Home', blogs });
+  res.redirect('/blogs');
 });
+
+app.use('/blogs', blogRouter);
 
 app.get('/about', (req, res) => {
-  res.render('about', { title: 'About' })
-});
-
-app.get('/create', (req, res) => {
-  res.render('create', { title: "Create a new Post" });
+  res.render('about', { title: 'About' });
 });
 
 app.use('/', (req, res) => {
-  res.status(404).render('404', { title: 'Page not Found'});
+  res.status(404).render('404', { title: 'Page not Found' });
 });
-
-app.listen(3000);
