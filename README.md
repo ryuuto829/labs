@@ -12,4 +12,4 @@ A simple blog using Express and MongoDB for storing all blog posts in the databa
 
 - **[Node Mini Blog](https://github.com/ryuuto829/labs/tree/master/node-mini-blog)**
 
-![node-mini-blog](https://github.com/ryuuto829/labs/tree/master/_assets/node-mini-blog.jpg)
+![node-mini-blog](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/node-mini-blog.jpg)
