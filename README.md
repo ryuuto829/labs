@@ -4,13 +4,12 @@ A Collection of small experiments that I´ve done based on my studies.
 
 ##### List of all projects:
 
-[test 1](#test1)  
-[test 2](#test2)
+[Node Mini Blog](#node-mini-blog)
 
-## test1
+## node-mini-blog
 
-coming soon ...
+A simple blog using Express and MongoDB for storing all blog posts in the database.
 
-## test2
+- **[Node Mini Blog](https://github.com/ryuuto829/labs/tree/master/node-mini-blog)**
 
-coming soon
+![node-mini-blog](https://github.com/ryuuto829/labs/tree/master/_assets/node-mini-blog.jpg)
