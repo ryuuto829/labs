@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title ? title : '' %> | Express Auth App</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+  <nav>
+    <a href="/"><h1>Gallery</h1></a>
+    <ul class="navList">
+      <% if (user) { %>
+        <li class="navList_item">Welcome</li>
+        <li class="navList_item">
+          <a href="/logout" class="btn">Log Out</a>
+        </li>
+      <% } else { %>
+        <li class="navList_item">
+          <a href="/login" class="btn">Log In</a>
+        </li>
+        <li class="navList_item">
+          <a href="/signup" class="btn btn--fill">Sign Up</a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>

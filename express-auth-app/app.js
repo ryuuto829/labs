@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const authRoutes = require('./routes/auth');
+
 // Loads environment variables from a .env file
 require('dotenv').config();
 
@@ -23,3 +25,7 @@ mongoose
   })
   .then(() => app.listen(3000))
   .catch(err => console.warn(err));
+
+app.get('/', (req, res) => res.render('index', { title: 'Home', user: null }));
+
+app.use(authRoutes);

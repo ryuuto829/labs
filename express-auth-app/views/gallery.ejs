@@ -1,0 +1,18 @@
+<%- include('./partials/head') %>
+
+  <div class="content">
+    <p>aasdasd</p>
+  </div>
+
+  <%- include('./partials/footer') %>
+
+  <script>
+    // Fetch some photos from the https://picsum.photos/
+    fetch('https://picsum.photos/v2/list?page=2&limit=100')
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  </script>
+
+</body>
+</html>
