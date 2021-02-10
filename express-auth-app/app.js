@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
 const authRoutes = require('./routes/auth');
 
 // Loads environment variables from a .env file
@@ -12,6 +11,9 @@ const app = express();
 
 // Register css files in the public folder
 app.use(express.static('public'));
+
+// Attach data to request obj
+app.use(express.json());
 
 // Setup EJS as view engine
 app.set('view engine', 'ejs');
