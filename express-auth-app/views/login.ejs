@@ -1,10 +1,35 @@
 <%- include('./partials/header') %>
 
   <div class="content">
-    <p>Login</p>
+    <form>
+      <h2>Log in</h2>
+
+      <label for="email">Email</label>
+      <input type="text" name="email" required autocomplete="off">
+      <div class="">error</div>
+
+      <label for="password">Password</label>
+      <input type="password" name="password" required autocomplete="off">
+      <div class="">error</div>
+
+      <button class="btn btn--fill">Log in</button>
+    </form>
   </div>
 
   <%- include('./partials/footer') %>
+
+  <script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const email = form.email.value;
+      const password = form.password.value;
+
+      console.log(email, password);
+    });
+  </script>
 
 </body>
 </html>
