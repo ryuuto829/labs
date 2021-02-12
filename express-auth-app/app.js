@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
+const cookieParser = require('cookie-parser');
 
 // Loads environment variables from a .env file
 require('dotenv').config();
@@ -14,6 +15,9 @@ app.use(express.static('public'));
 
 // Attach data to request obj
 app.use(express.json());
+
+// Cookies middleware
+app.use(cookieParser());
 
 // Setup EJS as view engine
 app.set('view engine', 'ejs');

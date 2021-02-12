@@ -22,10 +22,28 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', async function(next) {
   const salt = await bcrypt.genSalt();
 
+  // Save hashed pw to the database
   this.password = await bcrypt.hash(this.password, salt);
 
   next();
 });
+
+// Static method to the User
+// eslint-disable-next-line prettier/prettier
+userSchema.statics.login = async function(email, password) {
+  const user = await this.findOne({ email });
+
+  if (user) {
+    const auth = await bcrypt.compare(password, user.password);
+
+    if (auth) {
+      return user;
+    }
+    throw Error('Incorrect password');
+  }
+
+  throw Error('Incorrect email');
+};
 
 const User = mongoose.model('user', userSchema);
 
