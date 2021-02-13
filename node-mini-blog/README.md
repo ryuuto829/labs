@@ -1,6 +1,6 @@
 # Node Mini Blog
 
-> Simple blog using Express where you can store your posts.
+Simple blog using Express where you can store your posts.
 
 ![node-mini-blog](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/node-mini-blog.jpg)
 
