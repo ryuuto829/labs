@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const cookieParser = require('cookie-parser');
+const { requireAuth, checkUser } = require('./middleware/auth');
 
 // Loads environment variables from a .env file
 require('dotenv').config();
@@ -32,6 +33,11 @@ mongoose
   .then(() => app.listen(3000))
   .catch(err => console.warn(err));
 
-app.get('/', (req, res) => res.render('index', { title: 'Home', user: null }));
+// Main routes
+app.get('*', checkUser);
+app.get('/', (req, res) => res.render('index', { title: 'Home' }));
+app.get('/gallery', requireAuth, async (req, res) => {
+  res.render('gallery', { title: 'Gallery' });
+});
 
 app.use(authRoutes);

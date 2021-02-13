@@ -14,7 +14,7 @@
     <a href="/"><h1>Gallery</h1></a>
     <ul class="navList">
       <% if (user) { %>
-        <li class="navList_item">Welcome</li>
+        <li class="navList_item">Welcome, <%= user.email %></li>
         <li class="navList_item">
           <a href="/logout" class="btn">Log Out</a>
         </li>

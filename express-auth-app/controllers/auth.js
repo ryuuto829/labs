@@ -42,9 +42,10 @@ const createToken = id =>
 
 // Auth controllers
 const login_get = (req, res) => {
-  res.render('login', { title: 'Login', user: null });
+  res.render('login', { title: 'Login' });
 };
 
+// Login controllers
 const login_post = async (req, res) => {
   const { email, password } = req.body;
 
@@ -63,8 +64,9 @@ const login_post = async (req, res) => {
   }
 };
 
+// Sign up controllers
 const signup_get = (req, res) => {
-  res.render('signup', { title: 'Sign Up', user: null });
+  res.render('signup', { title: 'Sign Up' });
 };
 
 const signup_post = async (req, res) => {
@@ -85,9 +87,16 @@ const signup_post = async (req, res) => {
   }
 };
 
+// Logout controllers
+const logout_get = (req, res) => {
+  res.cookie('jwt', '', { maxAge: 1 });
+  res.redirect('/');
+};
+
 module.exports = {
   login_get,
   login_post,
   signup_get,
   signup_post,
+  logout_get,
 };

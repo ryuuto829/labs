@@ -1,17 +1,30 @@
-<%- include('./partials/head') %>
+<%- include('./partials/header') %>
 
-  <div class="content">
-    <p>aasdasd</p>
-  </div>
+  <div class="content" id="data"></div>
 
   <%- include('./partials/footer') %>
 
   <script>
+    const entry = document.getElementById('data');
+
     // Fetch some photos from the https://picsum.photos/
-    fetch('https://picsum.photos/v2/list?page=2&limit=100')
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    const data = fetch('https://picsum.photos/v2/list?page=2&limit=10')
+      .then(res => res.json())
+      .then(res => {
+        let content = '';
+
+        if (res) {
+          content = `<p class="description">Here some random photos from <a href="https://picsum.photos/">Lorem Picsum</a></p>`;
+          res.forEach(img => {
+            content += `<img src=${img.download_url} loading="lazy">`;
+          });
+        } else {
+          content = `<p>Please refresh page ..</p>`;
+        }
+
+        entry.innerHTML = content;
+      })
+      .catch(err => console.warn(err));
   </script>
 
 </body>
