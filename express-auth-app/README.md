@@ -40,7 +40,7 @@ npm start
 
 # API Limitation
 
-Current limitation (using [express-rate-limit](https://www.npmjs.com/package/express-rate-limit]):
+Current limitation (using [express-rate-limit](https://www.npmjs.com/package/express-rate-limit])):
 
 - Login attempts - 50 per hour
 - New user created - 25 per hour
