@@ -2,6 +2,8 @@
 
 Simple auth app using JWT on Express.
 
+![express-auth-app](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/express-auth-app.jpg)
+
 > From the youtube tutorial [Node.js Auth Tutorial (JWT)](https://www.youtube.com/watch?v=SnoAwLP1a-0&list=PL4cUxeGkcC9iqqESP8335DA5cRFp8loyp&ab_channel=TheNetNinja) by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg).
 
 **This application an experiment that contains:**
