@@ -10,6 +10,9 @@ const app = express();
 // Read more: http://expressjs.com/en/api.html#express.urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+// Serving static files in Express
+app.use(express.static('public'))
+
 // Connect to mongodb
 const { DB_URI, PORT } = process.env;
 
