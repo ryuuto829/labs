@@ -9,6 +9,9 @@
     "dev": "nodemon app.js",
     "tailwind:css": "postcss views/styles/tailwind.css -o public/styles/style.css"
   },
+  "engines": {
+    "node": "14.12.0"
+  },
   "author": "Dmytro Rykhlyk",
   "license": "MIT",
   "dependencies": {
