@@ -5,7 +5,8 @@
   "description": "Simple nodeJs blog",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "tailwind:css": "postcss views/styles/tailwind.css -o public/styles/style.css"
   },
   "author": "Dmytro Rykhlyk",
