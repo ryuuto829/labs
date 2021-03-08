@@ -10,8 +10,8 @@ const app = express();
 // Read more: http://expressjs.com/en/api.html#express.urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// Serving static files in Express
-app.use(express.static('public'))
+// Add public folder with stylesheets
+app.use(express.static(`${__dirname}/public`));
 
 // Connect to mongodb
 const { DB_URI, PORT } = process.env;
@@ -22,9 +22,6 @@ mongoose
 
 // Register view engine as EJS
 app.set('view engine', 'ejs');
-
-// Add public folder with stylesheets
-app.use(express.static(`${__dirname}/public`));
 
 app.get('/', (req, res) => {
   res.redirect('/blogs');
