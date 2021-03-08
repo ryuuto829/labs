@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "tailwind:css": "postcss views/styles/tailwind.css -o public/styles/style.css"
+    "tailwind:css": "postcss views/styles/tailwind.css -o public/styles/style.css",
+    "tailwind:build": "NODE_ENV=production postcss views/styles/tailwind.css -o public/styles/style.css"
   },
   "engines": {
     "node": "14.12.0"
