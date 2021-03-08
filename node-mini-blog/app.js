@@ -11,10 +11,10 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to mongodb
-const { dbURI, PORT } = process.env;
+const { DB_URI, PORT } = process.env;
 
 mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT || 3000));
 
 // Register view engine as EJS
