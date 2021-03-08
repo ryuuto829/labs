@@ -15,9 +15,11 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
     "mongoose": "^5.11.15",
     "postcss": "^8.2.5",
     "postcss-cli": "^8.3.1",
+    "rate-limit-mongo": "^2.3.0",
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
