@@ -13,7 +13,9 @@ A Collection of small experiments that I´ve done based on my studies.
 
 Simple auth app using JWT on Express.
 
-> **Github repo - [**Express Auth App**](https://github.com/ryuuto829/labs/tree/master/express-auth-app)**
+- **[GITHUB REPO](https://github.com/ryuuto829/labs/tree/master/express-auth-app)**
+
+- **[LIVE DEMO](https://express-auth-app829.herokuapp.com/)** on Heroku
 
 ![node-mini-blog](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/express-auth-app.jpg)
 
@@ -23,6 +25,6 @@ A simple blog using Express and MongoDB for storing all blog posts in the databa
 
 - **[GITHUB REPO](https://github.com/ryuuto829/labs/tree/master/node-mini-blog)**
 
-- **[LIVE DEMO](https://node-mini-blog.herokuapp.com/blogs)**
+- **[LIVE DEMO](https://node-mini-blog.herokuapp.com/blogs)** on Heroku
 
 ![node-mini-blog](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/node-mini-blog.jpg)

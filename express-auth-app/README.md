@@ -1,6 +1,12 @@
+<div align="center">
+
 # Express Auth App
 
 Simple auth app using JWT on Express.
+
+**Demo - https://express-auth-app829.herokuapp.com/**
+
+</div>
 
 ![express-auth-app](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/express-auth-app.jpg)
 
@@ -37,12 +43,53 @@ npm install
 
 ```bash
 # Watch for changes and run the application
-npm start
+npm dev
 ```
 
-# API Limitation
+# Deploy on Heroku
 
-Current limitation (using [express-rate-limit](https://www.npmjs.com/package/express-rate-limit])):
+1. Be sure to include init srcipt
 
-- Login attempts - 50 per hour
-- New user created - 25 per hour
+```json
+// package.json
+"scripts": {
+    "start": "node app.js",
+}
+```
+
+2. Check if heroku is installed
+
+```bash
+heroku -v
+```
+
+3. Create a new project
+
+```bash
+heroku apps:create <project-name>
+```
+
+4. Add remote
+
+```bash
+git remote add <heroku-name> <remote>
+
+git remote add heroku-express-app https://github.com/user/repo.git
+
+#  to confirm that a remote named heroku has been set for your app
+git remote -v
+```
+
+5. (optional) Make changes to the code and save it
+
+```bash
+git add .
+git commit -m "update"
+```
+
+6. Deploy our app from the custom folder
+
+```bash
+# folder-name => node-mini-blog
+git subtree push --prefix <folder-name> <heroku-name> master
+```
