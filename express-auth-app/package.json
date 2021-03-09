@@ -4,7 +4,8 @@
   "description": "Basic auth app using Express",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "Dmytro Rykhlyk",
   "license": "MIT",
@@ -17,6 +18,7 @@
     "express-rate-limit": "^5.2.5",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.15",
+    "rate-limit-mongo": "^2.3.0",
     "validator": "^13.5.2"
   },
   "devDependencies": {
@@ -27,5 +29,8 @@
     "eslint-plugin-prettier": "^3.3.1",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1"
+  },
+  "engines": {
+    "node": "14.12.0"
   }
 }

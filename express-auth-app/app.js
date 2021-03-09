@@ -6,8 +6,7 @@ const { requireAuth, checkUser } = require('./middleware/auth');
 
 // Loads environment variables from a .env file
 require('dotenv').config();
-
-const { DB_URI } = process.env;
+const { DB_URI, PORT } = process.env;
 
 const app = express();
 
@@ -30,7 +29,7 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .then(() => app.listen(3000))
+  .then(() => app.listen(PORT || 3000))
   .catch(err => console.warn(err));
 
 // Main routes
