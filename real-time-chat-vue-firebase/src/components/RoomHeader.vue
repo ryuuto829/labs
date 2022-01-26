@@ -31,6 +31,9 @@ export default {
   align-items: center;
 
   &__hash-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 0.5rem;
     color: var(--colorDarkGray);
   }

@@ -9,9 +9,9 @@
       <RoomHeader title="Room name" />
     </header>
     <div class="room__messages-list">
-      <ChatMessage />
-      <ChatMessage />
-      <ChatMessage />
+      <ChatMessage :username="username" :author="`anonymous-xqhj`" />
+      <ChatMessage :username="username" :author="`user1`" />
+      <ChatMessage :username="username" :author="`user2`" />
     </div>
     <div class="room__footer">
       <MessageForm />
@@ -35,6 +35,7 @@ export default {
   },
   props: {
     isSideBarOpen: Boolean,
+    username: String,
   },
   emits: ['onSideBarToggle'],
   methods: {
@@ -76,7 +77,9 @@ export default {
   &__messages-list {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
     margin-top: 64px;
     padding: 2rem 1rem;
   }

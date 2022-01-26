@@ -4,8 +4,12 @@
       <h1>Real time chat built with Vue.js and Firebase</h1>
     </header>
     <main>
-      <SideBar :isSideBarOpen="isSideBarOpen" />
-      <ChatRoom @onSideBarToggle="onSideBarToggle" :isSideBarOpen="isSideBarOpen" />
+      <SideBar :isSideBarOpen="isSideBarOpen" :username="username" />
+      <ChatRoom
+        @onSideBarToggle="onSideBarToggle"
+        :isSideBarOpen="isSideBarOpen"
+        :username="username"
+      />
     </main>
   </div>
 </template>
@@ -14,20 +18,45 @@
 import ChatRoom from './components/ChatRoom.vue'
 import SideBar from './components/SideBar.vue'
 
+// Generate a unique id for the username
+const uid = () => {
+  return Math.random().toString(36).substr(9)
+}
+
 export default {
   name: 'App',
-  data() {
-    return {
-      isSideBarOpen: false,
-    }
-  },
   components: {
     ChatRoom,
     SideBar,
   },
+  data() {
+    return {
+      isSideBarOpen: true,
+      username: '',
+    }
+  },
+  mounted() {
+    if (localStorage.username) {
+      this.username = localStorage.username
+    } else {
+      const usernameWithUID = `anonymous-${uid()}`
+
+      localStorage.setItem('username', usernameWithUID)
+      this.username = usernameWithUID
+    }
+  },
+  created() {
+    this.emitter.on('onUsernameUpdate', (updatedUsername) => {
+      this.onUsernameUpdate(updatedUsername)
+    })
+  },
   methods: {
     onSideBarToggle() {
       this.isSideBarOpen = !this.isSideBarOpen
+    },
+    onUsernameUpdate(updatedUsername) {
+      localStorage.setItem('username', updatedUsername)
+      this.username = updatedUsername
     },
   },
 }
@@ -39,6 +68,7 @@ export default {
   --colorWhite: #ffffff;
   --colorBlack: #030c1a;
   --colorDarkGray: #2f343d;
+  --colorLightGreen: #ccf2cf;
 }
 
 html {
@@ -64,8 +94,10 @@ body {
 
 main {
   display: flex;
+  height: 100vh;
+  max-height: 600px;
   width: 100%;
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
   background-color: white;
   border-radius: 6px;

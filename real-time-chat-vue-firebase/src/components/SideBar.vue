@@ -1,5 +1,6 @@
 <template>
   <aside v-if="isSideBarOpen" class="room-list">
+    <UsernameUpdate :username="username" />
     <div class="room-list__description">Choose a chatroom:</div>
     <div class="room">
       <RoomHeader title="General" />
@@ -18,17 +19,20 @@
 
 <script>
 import RoomHeader from './RoomHeader.vue'
+import UsernameUpdate from './UsernameUpdate.vue'
 
 export default {
   name: 'SideBar',
   components: {
     RoomHeader,
+    UsernameUpdate,
   },
   props: {
     isSideBarOpen: {
       default: false,
       type: Boolean,
     },
+    username: String,
   },
 }
 </script>
@@ -43,9 +47,9 @@ export default {
 
   &__description {
     display: flex;
-    margin-left: 1rem;
+    margin: 0 1rem;
     align-items: center;
-    height: 64px;
+    padding: 1rem 0;
   }
 }
 
