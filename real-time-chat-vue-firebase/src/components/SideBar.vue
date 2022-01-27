@@ -2,18 +2,14 @@
   <aside v-if="isSideBarOpen" class="room-list">
     <UsernameUpdate :username="username" />
     <div class="room-list__description">Choose a chatroom:</div>
-    <div class="room">
-      <RoomHeader title="General" />
-    </div>
-    <div class="room">
-      <RoomHeader title="Design" />
-    </div>
-    <div class="room">
-      <RoomHeader title="Web-dev" />
-    </div>
-    <div class="room">
-      <RoomHeader title="Books" />
-    </div>
+    <button
+      v-for="chartroom in chatrooms"
+      :key="chartroom"
+      class="button room"
+      @click="onRoomChange(chartroom)"
+    >
+      <RoomHeader :title="chartroom" />
+    </button>
   </aside>
 </template>
 
@@ -33,6 +29,13 @@ export default {
       type: Boolean,
     },
     username: String,
+    chatrooms: Array,
+  },
+  emits: ['onRoomChange'],
+  methods: {
+    onRoomChange(roomTitle) {
+      this.$emit('onRoomChange', roomTitle)
+    },
   },
 }
 </script>
@@ -62,6 +65,7 @@ export default {
   cursor: pointer;
   transition: all 0.25s ease-out;
   padding: 1rem;
+  width: 100%;
 
   &:hover {
     background-color: #f7f8fa;

@@ -4,11 +4,17 @@
       <h1>Real time chat built with Vue.js and Firebase</h1>
     </header>
     <main>
-      <SideBar :isSideBarOpen="isSideBarOpen" :username="username" />
+      <SideBar
+        :isSideBarOpen="isSideBarOpen"
+        :username="username"
+        :chatrooms="chatrooms"
+        @onRoomChange="onRoomChange"
+      />
       <ChatRoom
         @onSideBarToggle="onSideBarToggle"
         :isSideBarOpen="isSideBarOpen"
         :username="username"
+        :currentRoom="currentRoom"
       />
     </main>
   </div>
@@ -33,6 +39,8 @@ export default {
     return {
       isSideBarOpen: true,
       username: '',
+      chatrooms: ['General', 'Design', 'Web-dev', 'Books'],
+      currentRoom: 'General',
     }
   },
   mounted() {
@@ -57,6 +65,9 @@ export default {
     onUsernameUpdate(updatedUsername) {
       localStorage.setItem('username', updatedUsername)
       this.username = updatedUsername
+    },
+    onRoomChange(roomTitle) {
+      this.currentRoom = roomTitle
     },
   },
 }

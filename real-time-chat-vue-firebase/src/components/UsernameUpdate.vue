@@ -9,7 +9,9 @@
       class="username__input"
     />
     <div v-else class="username__value">{{ username }}</div>
-    <button class="button button--update" @click="onUsernameUpdate">Update</button>
+    <button class="button button--update" @click="onUsernameUpdate">
+      {{ isEdit ? 'Confirm' : 'Update' }}
+    </button>
   </div>
 </template>
 
@@ -22,7 +24,7 @@ export default {
   data() {
     return {
       isEdit: false,
-      userNameInputText: this.username,
+      userNameInputText: '',
     }
   },
   methods: {
@@ -32,6 +34,7 @@ export default {
         this.emitter.emit('onUsernameUpdate', this.userNameInputText)
       } else {
         this.isEdit = true
+        this.userNameInputText = this.username
       }
     },
   },

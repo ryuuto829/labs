@@ -15,11 +15,16 @@
 
 <script>
 import SendIcon from './icons/SendIcon.vue'
+import db from '../firebase/db'
 
 export default {
   name: 'MessageForm',
   components: {
     SendIcon,
+  },
+  props: {
+    username: String,
+    currentRoom: String,
   },
   data() {
     return {
@@ -27,8 +32,24 @@ export default {
     }
   },
   methods: {
-    onSendMessage() {
-      console.log('[MessageForm] submit')
+    async onSendMessage() {
+      if (!this.message) {
+        return
+      }
+
+      try {
+        const messagesRef = db.database().ref(this.currentRoom)
+        const userMessage = {
+          author: this.username,
+          content: this.message,
+        }
+
+        console.log('[MessageForm] msg send')
+        messagesRef.push(userMessage)
+        this.message = ''
+      } catch (err) {
+        console.error(err)
+      }
     },
   },
 }

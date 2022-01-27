@@ -6,15 +6,16 @@
           <ArrowsIcon />
         </button>
       </div>
-      <RoomHeader title="Room name" />
+      <RoomHeader :title="currentRoom" />
     </header>
     <div class="room__messages-list">
-      <ChatMessage :username="username" :author="`anonymous-xqhj`" />
-      <ChatMessage :username="username" :author="`user1`" />
-      <ChatMessage :username="username" :author="`user2`" />
+      <template v-for="(message, index) in messagesData" :key="index">
+        <ChatMessage :username="username" :author="message.author" :content="message.content" />
+      </template>
+      <div v-if="messagesData.length === 0">No messages</div>
     </div>
     <div class="room__footer">
-      <MessageForm />
+      <MessageForm :username="username" :currentRoom="currentRoom" />
     </div>
   </section>
 </template>
@@ -24,6 +25,8 @@ import MessageForm from './MessageForm.vue'
 import ChatMessage from './ChatMessage.vue'
 import RoomHeader from './RoomHeader.vue'
 import ArrowsIcon from './icons/ArrowsIcon.vue'
+
+import db from '../firebase/db'
 
 export default {
   name: 'ChatRoom',
@@ -36,11 +39,47 @@ export default {
   props: {
     isSideBarOpen: Boolean,
     username: String,
+    currentRoom: String,
+  },
+  data() {
+    return {
+      messagesData: [],
+    }
+  },
+  created() {
+    this.getMessagesData()
+  },
+  watch: {
+    currentRoom() {
+      console.log('cahnge')
+      this.getMessagesData()
+    },
   },
   emits: ['onSideBarToggle'],
   methods: {
     onSideBarToggle() {
       this.$emit('onSideBarToggle')
+    },
+
+    async getMessagesData() {
+      const messagesRef = db.database().ref(this.currentRoom)
+
+      messagesRef.on('value', (snapshot) => {
+        const data = snapshot.val()
+
+        if (!data) {
+          this.messagesData = []
+          return
+        }
+
+        const messages = Object.keys(data).map((key) => ({
+          id: key,
+          author: data[key].author,
+          content: data[key].content,
+        }))
+
+        this.messagesData = messages
+      })
     },
   },
 }

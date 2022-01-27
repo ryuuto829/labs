@@ -5,7 +5,7 @@
       <span class="message__timestamp">10:25</span>
     </div>
     <div :class="['message__text', isUserOwnMessage && 'message__text--own-message']">
-      Message some text here
+      {{ content }}
     </div>
   </div>
 </template>
@@ -16,6 +16,7 @@ export default {
   props: {
     author: String,
     username: String,
+    content: String,
   },
   computed: {
     isUserOwnMessage() {
