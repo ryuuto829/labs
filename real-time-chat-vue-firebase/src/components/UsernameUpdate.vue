@@ -72,10 +72,10 @@ export default {
   width: 100%;
   padding: 0.25rem 1rem;
   font-size: 16px;
-  border: 2px solid #fa8072;
+  border: 2px solid var(--colorSalmon);
 
   &:hover {
-    background-color: #fa8072;
+    background-color: var(--colorSalmon);
     color: var(--colorWhite);
   }
 }

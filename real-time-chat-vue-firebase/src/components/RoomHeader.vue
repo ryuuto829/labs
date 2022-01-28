@@ -35,7 +35,7 @@ export default {
     justify-content: center;
     align-items: center;
     margin-right: 0.5rem;
-    color: var(--colorDarkGray);
+    color: var(--colorSalmon);
   }
 
   &__title {

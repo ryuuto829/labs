@@ -2,7 +2,7 @@
   <div :class="['message', isUserOwnMessage && 'message--own-message']">
     <div :class="['message__info', isUserOwnMessage && 'message__info--own-message']">
       <span class="message__username">{{ author }}</span>
-      <span class="message__timestamp">10:25</span>
+      <span class="message__timestamp">{{ created }}</span>
     </div>
     <div :class="['message__text', isUserOwnMessage && 'message__text--own-message']">
       {{ content }}
@@ -17,6 +17,7 @@ export default {
     author: String,
     username: String,
     content: String,
+    created: String,
   },
   computed: {
     isUserOwnMessage() {

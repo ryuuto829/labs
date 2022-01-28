@@ -14,8 +14,9 @@
 </template>
 
 <script>
-import SendIcon from './icons/SendIcon.vue'
+import firebase from 'firebase/compat/app'
 import db from '../firebase/db'
+import SendIcon from './icons/SendIcon.vue'
 
 export default {
   name: 'MessageForm',
@@ -42,9 +43,9 @@ export default {
         const userMessage = {
           author: this.username,
           content: this.message,
+          created: firebase.database.ServerValue.TIMESTAMP,
         }
 
-        console.log('[MessageForm] msg send')
         messagesRef.push(userMessage)
         this.message = ''
       } catch (err) {

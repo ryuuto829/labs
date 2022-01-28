@@ -1,7 +1,7 @@
 <template>
   <div>
-    <header>
-      <h1>Real time chat built with Vue.js and Firebase</h1>
+    <header class="header">
+      <h1 class="header__title">Real time chat built with Vue.js and Firebase</h1>
     </header>
     <main>
       <SideBar
@@ -63,6 +63,11 @@ export default {
       this.isSideBarOpen = !this.isSideBarOpen
     },
     onUsernameUpdate(updatedUsername) {
+      if (updatedUsername.trim() === '') {
+        this.username = `anonymous-${uid()}`
+        return
+      }
+
       localStorage.setItem('username', updatedUsername)
       this.username = updatedUsername
     },
@@ -80,6 +85,7 @@ export default {
   --colorBlack: #030c1a;
   --colorDarkGray: #2f343d;
   --colorLightGreen: #ccf2cf;
+  --colorSalmon: #fa8072;
 }
 
 html {
@@ -99,7 +105,7 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background-color: var(--colorWhite);
+  background-color: var(--colorBlack);
   color: var(--colorDarkGray);
 }
 
@@ -123,12 +129,22 @@ main {
   background-color: transparent;
   padding: 4px;
   border-radius: 6px;
-  color: #57585d;
+  color: var(--colorBlack);
   cursor: pointer;
   transition: all 0.25s ease-out;
 
   &:hover {
     background-color: #f7f8fa;
+  }
+}
+
+.header {
+  color: var(--colorSalmon);
+  margin: 2rem 0;
+
+  &__title {
+    font-size: 22px;
+    margin: 0;
   }
 }
 </style>

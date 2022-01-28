@@ -10,9 +10,14 @@
     </header>
     <div class="room__messages-list">
       <template v-for="(message, index) in messagesData" :key="index">
-        <ChatMessage :username="username" :author="message.author" :content="message.content" />
+        <ChatMessage
+          :username="username"
+          :author="message.author"
+          :content="message.content"
+          :created="message.created"
+        />
       </template>
-      <div v-if="messagesData.length === 0">No messages</div>
+      <div v-if="messagesData.length === 0" class="room__no-messages">No messages</div>
     </div>
     <div class="room__footer">
       <MessageForm :username="username" :currentRoom="currentRoom" />
@@ -21,11 +26,11 @@
 </template>
 
 <script>
+import { formatDistance } from 'date-fns'
 import MessageForm from './MessageForm.vue'
 import ChatMessage from './ChatMessage.vue'
 import RoomHeader from './RoomHeader.vue'
 import ArrowsIcon from './icons/ArrowsIcon.vue'
-
 import db from '../firebase/db'
 
 export default {
@@ -51,7 +56,6 @@ export default {
   },
   watch: {
     currentRoom() {
-      console.log('cahnge')
       this.getMessagesData()
     },
   },
@@ -72,11 +76,15 @@ export default {
           return
         }
 
-        const messages = Object.keys(data).map((key) => ({
-          id: key,
-          author: data[key].author,
-          content: data[key].content,
-        }))
+        // Markup messages in reverse order to fix scroll bottom position
+        const messages = Object.keys(data)
+          .map((key) => ({
+            id: key,
+            author: data[key].author,
+            content: data[key].content,
+            created: formatDistance(data[key].created, new Date(), { addSuffix: true }),
+          }))
+          .reverse()
 
         this.messagesData = messages
       })
@@ -116,11 +124,22 @@ export default {
   &__messages-list {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: flex-start;
     height: 100%;
     margin-top: 64px;
     padding: 2rem 1rem;
+    overflow-y: auto;
+    flex-direction: column-reverse;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  &__no-messages {
+    width: 100%;
+    text-align: center;
   }
 
   &__footer {
