@@ -1,29 +1,26 @@
-<div align="center">
-
-# Real-time Chat Vue Firebase
+# Real-time Chat build with Vue.js and Firebase
 
 A real-time chat built with Vue.js and Firebase.
 
-**Demo - https://real-time-chat-vue-firebase.netlify.app**
-
-</div>
+**[Live Demo](https://real-time-chat-vue-firebase.netlify.app)**
 
 ![real-time-chat-vue-firebase](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/real-time-chat-vue-firebase.gif)
 
-**This application an experiment that contains:**
+## Features
 
-- firebase as adatabase
-- different chat rooms
-- real-time messages between users
-- update username
+This application an experiment that contains:
 
-**Build with:**
+- Different chat rooms
+- Real-time messages between users
+- Custom usernames
+
+## Build with
 
 - Vue.js
 - Firebase
 - date-fns
 
-# Usage
+## Running Locally
 
 1. Install dependencies
 
@@ -31,9 +28,9 @@ A real-time chat built with Vue.js and Firebase.
 yarn
 ```
 
-2. Create `firebase/config.js` with your firebase config (use `config_sample.js` as an example)
+2. Create `firebase/config.js` and add your firebase config (use `config_sample.js` as an example)
 
-3. Run app
+3. Fire up the server and watch files
 
 ```shell
 yarn serve

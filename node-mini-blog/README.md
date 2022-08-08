@@ -1,32 +1,30 @@
-<div align="center">
+# Mini Blog using Express.js
 
-# Node Mini Blog
+Simple blog using Express.js.
 
-Simple blog using Express where you can store your posts.
-
-**Demo - https://node-mini-blog.herokuapp.com/blogs**
-
-</div>
+**[Demo on Heroku](https://node-mini-blog.herokuapp.com/blogs)**
 
 ![node-mini-blog](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/node-mini-blog.jpg)
 
 > From the youtube tutorial [Node.js Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU) by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg).
 
-**This application an experiment that contains:**
+## Features
 
-- mongodb as database
-- form to add new posts
-- full page view for each post
-- delete post button
+This application an experiment that contains:
 
-**Build with:**
+- CRUD and data modeling
+- New post form
+- Dashboard with all posts
+- Routing & Deployment
 
-- Express
+## Build with
+
+- Node.js (Express.js)
 - Tailwind CSS
 - EJS
 - MongoDB
 
-# Usage
+## Running Locally
 
 1. Install dependencies
 
@@ -54,18 +52,17 @@ tailwind:build
 
 ```
 
-# Deploy on Heroku
+## Deploy on Heroku
 
-1. Be sure to include init srcipt
+1. Be sure to include the init script in `package.json` file
 
 ```json
-// package.json
 "scripts": {
     "start": "node app.js",
 }
 ```
 
-2. Check if heroku is installed
+2. Check if Heroku is installed
 
 ```bash
 heroku -v
@@ -80,7 +77,7 @@ heroku apps:create <project-name>
 git remote -v
 ```
 
-4. (optional) Make changes to the code and save it
+4. (Optional) Make changes to the code and save it
 
 ```bash
 git add .
@@ -94,7 +91,7 @@ git commit -m "update"
 git subtree push --prefix <folder-name> heroku master
 ```
 
-6. Restart heroku
+6. Restart Heroku
 
 ```bash
 heroku restart
@@ -105,7 +102,3 @@ heroku restart
 ```bash
 heroku open
 ```
-
----
-
-P.S.: Data for blog posts was taken from the https://reactjs.org/ documentation.

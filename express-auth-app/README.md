@@ -1,35 +1,32 @@
-<div align="center">
-
 # Express Auth App
 
-Simple auth app using JWT on Express.
+Simple App with Authentication built with Express.js and using JSON web tokens (JWT).
 
-**Demo - https://express-auth-app829.herokuapp.com/**
-
-</div>
+**[Demo on Heroku](https://express-auth-app829.herokuapp.com/)**
 
 ![express-auth-app](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/express-auth-app.jpg)
 
 > From the youtube tutorial [Node.js Auth Tutorial (JWT)](https://www.youtube.com/watch?v=SnoAwLP1a-0&list=PL4cUxeGkcC9iqqESP8335DA5cRFp8loyp&ab_channel=TheNetNinja) by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg).
 
-**This application an experiment that contains:**
+## Features
 
-- mongodb as database
-- login & signup forms with validation
-- auth error handling
-- protected routes
-- token with cookies using JWT
-- hashing passwords
-- login, sign up, logout
+This application is an experiment that contains:
 
-**Build with:**
+- Login & Signup forms with input validation
+- Authentication error handling
+- Protected routes
+- Data modeling
+- Authentication state persistence using cookies
+- Security w/ hashed passwords
 
-- Express
+## Build with
+
+- Node.js (Express.js)
 - EJS
-- MongoDB
+- MongoDB (Mongoose)
 - JWT
 
-# Usage
+## Running Locally
 
 1. Install dependencies
 
@@ -37,27 +34,26 @@ Simple auth app using JWT on Express.
 npm install
 ```
 
-2. Change `.env.sample` fields with your data and rename it to `.env`
+2. Change the `.env.sample` fields with your data and rename file to `.env`
 
-3. Run app
+3. Run the app
 
 ```bash
 # Watch for changes and run the application
 npm dev
 ```
 
-# Deploy on Heroku
+## Deploy on Heroku
 
-1. Be sure to include init srcipt
+1. Be sure to include the init script in `package.json` file
 
 ```json
-// package.json
 "scripts": {
     "start": "node app.js",
 }
 ```
 
-2. Check if heroku is installed
+2. Check if Heroku is installed
 
 ```bash
 heroku -v
@@ -69,7 +65,7 @@ heroku -v
 heroku apps:create <project-name>
 ```
 
-4. Add remote
+4. Add a remote link
 
 ```bash
 git remote add <heroku-name> <remote>
@@ -80,16 +76,15 @@ git remote add heroku-express-app https://github.com/user/repo.git
 git remote -v
 ```
 
-5. (optional) Make changes to the code and save it
+5. (Optional) Make changes to the code and save it
 
 ```bash
 git add .
 git commit -m "update"
 ```
 
-6. Deploy our app from the custom folder
+6. Deploy your app from the custom folder
 
 ```bash
-# folder-name => node-mini-blog
 git subtree push --prefix <folder-name> <heroku-name> master
 ```
