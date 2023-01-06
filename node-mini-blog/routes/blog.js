@@ -22,7 +22,7 @@ const limiter = new RateLimit({
   max: 25,
   windowMs: rateLimitDelay,
   message:
-    'Too many actions were created from this IP, please try again after a 30 minutes.',,
+    'Too many actions were created from this IP, please try again after a 30 minutes.',
 });
 
 const router = express.Router();

@@ -2,7 +2,7 @@
 
 Simple blog using Express.js.
 
-**[Demo on Heroku](https://node-mini-blog.herokuapp.com/blogs)**
+**[node-mini-blog.onrender.com](https://node-mini-blog.onrender.com/)**
 
 ![node-mini-blog](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/node-mini-blog.jpg)
 
@@ -52,7 +52,9 @@ tailwind:build
 
 ```
 
-## Deploy on Heroku
+## (Optional) Deploy on Heroku
+
+> NOTE: Project has been migrated from Heroku to Render.
 
 1. Be sure to include the init script in `package.json` file
 
