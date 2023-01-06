@@ -2,7 +2,7 @@
 
 Simple App with Authentication built with Express.js and using JSON web tokens (JWT).
 
-**[Demo on Heroku](https://express-auth-app829.herokuapp.com/)**
+**[express-auth-app.onrender.com](https://express-auth-app.onrender.com/)**
 
 ![express-auth-app](https://raw.githubusercontent.com/ryuuto829/labs/master/_assets/express-auth-app.jpg)
 
@@ -43,7 +43,9 @@ npm install
 npm dev
 ```
 
-## Deploy on Heroku
+## (Optional) Deploy on Heroku
+
+> NOTE: Project has been migrated from Heroku to Render.
 
 1. Be sure to include the init script in `package.json` file
 
